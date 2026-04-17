@@ -16,7 +16,7 @@ def parse_args():
     '''Parse input arguments'''
 
     parser = argparse.ArgumentParser("prep")  # Create an ArgumentParser object
-    parser.add_argument("--data", type=str, help="Path to raw data")  # Specify the type for raw data (str)
+    parser.add_argument("--raw_data", type=str, help="Path to raw data")  # Specify the type for raw data (str)
     parser.add_argument("--train_data", type=str, help="Path to train dataset")  # Specify the type for train data (str)
     parser.add_argument("--test_data", type=str, help="Path to test dataset")  # Specify the type for test data (str)
     parser.add_argument("--test_train_ratio", type=float, default=0.2, help="Test-train ratio")  # Specify the type (float) and default value (0.2)
@@ -28,7 +28,7 @@ def main(args):  # Write the function name for the main data preparation logic
     '''Read, preprocess, split, and save datasets'''
 
     # Reading Data
-    df = pd.read_csv(args.data)
+    df = pd.read_csv(args.raw_data)
 
     # Encode categorical feature
     le = LabelEncoder()
