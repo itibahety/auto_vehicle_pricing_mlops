@@ -19,7 +19,7 @@ outputs:
 
 settings:
   default_datastore: azureml:workspaceblobstore
-  default_compute: azureml:cpu-cluster
+  default_compute: azureml:test-cluster
   continue_on_step_failure: false
 
 jobs:
@@ -62,8 +62,8 @@ jobs:
       goal: minimize
       primary_metric: MSE
     limits:
-      max_total_trials: 20
-      max_concurrent_trials: 10
+      max_total_trials: 5
+      max_concurrent_trials: 3
       timeout: 7200
 
 
