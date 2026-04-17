@@ -51,7 +51,7 @@ def main(args):
     mlflow.log_param("max_depth", args.max_depth)
 
     # Predict using the RandomForest Regressor on test data
-    yhat_test = model.Predict(X_test)  # Predict the test data
+    yhat_test = model.predict(X_test)  # Predict the test data
 
     # Compute and log mean squared error for test data
     mse = mean_squared_error(y_test, yhat_test)
@@ -59,7 +59,7 @@ def main(args):
     mlflow.log_metric("MSE", float(mse))  # Log the MSE
 
     # Save the model
-    mlflow.sklearn.log_model(sk_model=model, path=args.model_output)  # Save the model
+    mlflow.sklearn.save_model(sk_model=model, path=args.model_output)  # Save the model
 
 if __name__ == "__main__":
     
